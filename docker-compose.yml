@@ -37,12 +37,12 @@ services:
   searxng:
     container_name: searxng
     image: searxng/searxng:latest
-    networks:
-      - searxng
+#     networks:
+#       - searxng
     ports:
      - 8080:8080
     volumes:
-      - home/ubuntu/searxng/:/etc/searxng:rw
+      - home/ubuntu/searxng/:/etc/searxng
     environment:
       - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
     cap_drop:
@@ -52,15 +52,15 @@ services:
       - SETGID
       - SETUID
       - DAC_OVERRIDE
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "1m"
-        max-file: "1"
-networks:
-  searxng:
-    ipam:
-      driver: default
+#     logging:
+#       driver: "json-file"
+#       options:
+#         max-size: "1m"
+#         max-file: "1"
+# networks:
+#   searxng:
+#     ipam:
+#       driver: default
 
 volumes:
   caddy-data:
