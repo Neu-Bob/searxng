@@ -9,7 +9,7 @@ services:
     ports:
      - 8080:8080
     volumes:
-      - home/ubuntu/searxng/:/etc/searxng
+      - home/ubuntu/searxng:/etc/searxng
     environment:
       - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
     cap_drop:
