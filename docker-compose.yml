@@ -21,7 +21,7 @@ services:
 
   redis:
     container_name: redis
-    image: "redis:alpine"
+    image: redis:alpine
     command: redis-server --save "" --appendonly "no"
     networks:
       - searxng
@@ -40,7 +40,7 @@ services:
     networks:
       - searxng
     ports:
-     - "127.0.0.1:8080:8080"
+     - 8080:8080
     volumes:
       - home/ubuntu/searxng/:/etc/searxng:rw
     environment:
